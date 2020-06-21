@@ -1,0 +1,69 @@
+<p>sign-up works!</p>
+<br>
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+
+<!--   <div>
+    <br>
+      Form submitted ? {{myForm.submitted}} <br>
+      Form valid ? {{myForm.valid}}<br>
+      Form invalid ? {{myForm.invalid}}<br>
+    <br>
+  </div> -->
+
+  <br><!-- firstname -->
+
+  <div>
+    <label for="firstname">FirstName</label>
+    <input name="firstname" type="text" [(ngModel)]="user.firstname" #firstname="ngModel" required minlength="3" maxlength="15"/>
+  </div>
+
+  <!-- Message d'erreurs -->
+  <div *ngIf="myForm.submitted && email.errors">
+    <span *ngIf="firstname.errors?.required">Le Prénom est requis</span>
+    <span *ngIf="firstname.errors?.minlength">Le prénom doit comporter au moins 3 caractères</span>
+    <span *ngIf="firstname.errors?.maxlength">Le prénom ne doit pas dépasser 15 caractères</span>
+  </div>
+
+  <br><!-- Lastname -->
+
+  <div>
+    <label for="lastname">LastName</label>
+    <input name="lastname" type="text" [(ngModel)]="user.lastname" #lastname="ngModel" required minlength="3" maxlength="15"/>
+  </div>
+
+  <!-- Message d'erreurs -->
+  <div *ngIf="myForm.submitted && email.errors">
+    <span *ngIf="lastname.errors?.required">Le Nom est requis</span>
+    <span *ngIf="lastname.errors?.minlength">Le nom doit comporter au moins 3 caractères</span>
+    <span *ngIf="lastname.errors?.maxlength">Le nom ne doit pas dépasser 15 caractères</span>
+  </div>
+
+  <br><!-- E_mail -->
+
+  <div>
+    <label for="email">Email</label>
+    <input name="email" type="text" [(ngModel)]="user.email" #email="ngModel" required email>
+  </div>
+  <!-- Message d'erreurs -->
+  <div *ngIf="myForm.submitted && email.errors">
+    <span *ngIf="email.errors?.required">Le champ email est requis</span>
+    <span *ngIf="email.errors?.email">L'email est invalide</span>
+  </div>
+
+  <br><!-- Password -->
+
+  <div>
+    <label for="password">Password</label>
+    <input name="password" type="text" [(ngModel)]="user.password" #password="ngModel" required/>
+  </div>
+
+  <!-- Message d'erreurs -->
+  <div *ngIf="myForm.submitted && email.errors">
+    <span *ngIf="password.errors?.required">Le password est requis</span>
+  </div>
+
+  <br>
+  <button type="reset" style="margin-right: 10px;">Restaurer</button>
+  <button type="submit">Inscription</button>
+</form>
+

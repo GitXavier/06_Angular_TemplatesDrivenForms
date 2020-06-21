@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "app-quete-form"
+    }
+  },
+  "defaultProject": "app-quete-form",
+  "cli": {
+    "analytics": "c8baf91b-af62-4d28-870a-b720c5c741c8"
+  }
 }
